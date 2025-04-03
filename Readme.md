@@ -1,6 +1,6 @@
 # 🚀 GitHub Activity CLI
 
-Una herramienta de línea de comandos para consultar información de usuarios de GitHub, como su actividad reciente, repositorios e información de perfil.
+Una herramienta de línea de comandos para consultar información de usuarios de GitHub, como su actividad reciente, repositorios e información de perfil. https://roadmap.sh/projects/github-user-activity
 
 ---
 
