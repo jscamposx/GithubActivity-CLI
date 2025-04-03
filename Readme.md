@@ -17,7 +17,7 @@ El objetivo principal de este proyecto es crear una interfaz de línea de comand
 
 1.  **Java 21**
 2.  **Maven**
-3.  **Spring Boot **
+3.  **Spring Boot**
    
 
 ## 📂 Estructura del Proyecto (Simplificada)
