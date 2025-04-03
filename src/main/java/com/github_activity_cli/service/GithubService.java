@@ -1,6 +1,7 @@
 package com.github_activity_cli.service;
 
 import com.github_activity_cli.model.Event;
+import com.github_activity_cli.model.Repo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,4 +26,11 @@ public class GithubService {
         Event[] events = restTemplate.getForObject(url, Event[].class);
         return Arrays.asList(events != null ? events : new Event[0]);
     }
+
+    public List<Repo> getRepositorys(String username) {
+        String url = "https://api.github.com/users/" + username + "/repos";
+        Repo[] Repos = restTemplate.getForObject(url, Repo[].class);
+        return Arrays.asList(Repos  != null ? Repos : new Repo[0]);
+    }
+
 }

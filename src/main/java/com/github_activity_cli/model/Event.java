@@ -19,13 +19,5 @@ public class Event {
     @JsonProperty("created_at")
     private String createdAt;
 
-    @Data
-    public static class Repo {
 
-        @JsonProperty("name")
-        private String name;
-
-        @JsonProperty("url")
-        private String url;
-    }
 }
