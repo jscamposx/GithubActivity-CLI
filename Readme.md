@@ -1,131 +1,130 @@
-# GitHub Activity CLI 📱
+# 🚀 GitHub Activity CLI
 
-¡Bienvenido a **GitHub Activity CLI**! 👨‍💻👩‍💻
+Una herramienta de línea de comandos para consultar información de usuarios de GitHub, como su actividad reciente, repositorios e información de perfil.
 
-Este es un proyecto de línea de comandos (CLI) construido con **Spring Boot**. Te permite obtener la actividad reciente y los repositorios de un usuario de GitHub de manera sencilla. ¡Es fácil de usar y muy práctico para monitorear las actividades de tus usuarios favoritos de GitHub! 🔍
-
-## 🎯 Objetivo del Proyecto
-
-El objetivo principal de este proyecto es crear una interfaz de línea de comandos que:
-
-- Permite obtener la actividad reciente de un usuario de GitHub.
-- Permite obtener la lista de repositorios públicos de un usuario.
-- Muestra información relevante como repositorios, eventos, fechas, URLs y descripciones.
-- Ofrece una experiencia visual atractiva en la consola con colores y formatos personalizados.
+---
 
 ## 🛠️ Tecnologías Utilizadas
 
-1.  **Java 21**
-2.  **Maven**
-3.  **Spring Boot**
-   
+- **Java**: Lenguaje de programación principal.
+- **Spring Boot**: Framework para construir la aplicación.
+- **Spring Shell**: Framework para crear la interfaz de línea de comandos (CLI).
+- **Maven**: Herramienta de gestión de proyectos y dependencias.
+- **RestTemplate**: Cliente HTTP de Spring para interactuar con la API de GitHub.
+- **Lombok**: Librería para reducir el código boilerplate (`@Data`).
+- **Jackson**: Librería para la serialización y deserialización de JSON (`@JsonProperty`).
 
-## 📂 Estructura del Proyecto (Simplificada)
+---
 
-```
-📦 github-activity-cli
-├── 📁 .mvn/
-├── 📁 src
-│   ├── 📁 main
-│   │   ├── 📁 java/com/github_activity_cli
-│   │   │   ├── 📁 controller # (Si es una app web/API) o cli (Si es CLI pura)
-│   │   │   │   └── GithubController.java / GithubCommands.java
-│   │   │   ├── 📁 model      # Clases del dominio (Event, Repo)
-│   │   │   │   ├── Event.java
-│   │   │   │   └── Repo.java
-│   │   │   ├── 📁 service    # Lógica de negocio (Llamadas a API GitHub)
-│   │   │   │   └── GithubService.java
-│   │   │   ├── 📁 util       # Clases de utilidad (DateFormatter)
-│   │   │   │   └── DateFormatter.java
-│   │   │   └── GithubActivityCliApplication.java # Punto de entrada Spring Boot
-│   │   └── 📁 resources
-│   │       ├── 📁 static     # Archivos estáticos (si aplica)
-│   │       ├── 📁 templates   # Plantillas (si aplica)
-│   │       ├── application.properties # Configuración de Spring
-│   │       └── banner.txt    # Banner de inicio (opcional)
-│   └── 📁 test        # Pruebas unitarias/integración
-├── 📁 target/       # Archivos generados por Maven (compilación)
-├── 📄 .gitattributes
-├── 📄 .gitignore
-├── 📄 HELP.md       # Documentación adicional (si existe)
-├── 📄 mvnw          # Maven Wrapper (Linux/Mac)
-├── 📄 mvnw.cmd      # Maven Wrapper (Windows)
-└── 📄 pom.xml       # Archivo de configuración de Maven
+## 📂 Estructura del Proyecto
+
+```plaintext
+📂 Proyecto
+├── 📦 src
+│   ├── 📂 main
+│   │   ├── 📂 java
+│   │   │   ├── 🏢 com.github_activity_cli  # Paquete principal de la aplicación
+│   │   │   │   ├── 🕹️ controller           # Controladores para manejar los comandos CLI
+│   │   │   │   ├── ⚠️ exceptions           # Manejo de excepciones personalizadas
+│   │   │   │   ├── 📄 model                # Modelos de datos (Usuario, Repositorio, Evento)
+│   │   │   │   ├── ⚙️ service               # Lógica de negocio y comunicación con la API de GitHub
+│   │   │   │   ├── 🛠️ util                  # Utilidades como formateo de fechas y caché
+│   │   │   │   └── 🚀 GithubActivityCliApplication.java  # Punto de entrada de la aplicación
+│   ├── 📂 resources
+│   │   ├── ⚙️ application.properties       # Configuraciones de la aplicación
+│   │   └── 🎨 banner.txt                  # Banner ASCII para la CLI
+├── 🧪 test                                # Pruebas automatizadas
+├── 📜 pom.xml                             # Archivo de configuración de Maven
 ```
 
+---
 
-## 🔧 Comandos Disponibles
+## ⚙️ Comandos Disponibles
 
-*(Asumiendo una ejecución como aplicación CLI compilada o vía Spring Shell)*
+Una vez que la aplicación esté en ejecución, puedes usar los siguientes comandos en tu terminal:
 
-### 1. Obtener Actividad Reciente (`github-activity`)
-
-Muestra la actividad reciente de un usuario de GitHub, incluyendo eventos como:
-
-- Pusheo de commits.
-- Creación de issues.
-- Estrellas (stars) en repositorios.
-
-**Ejemplo de uso:**
-
-```bash
-github-activity --username <nombre_usuario>
-# O si es Spring Shell: shell:> github-activity --username <nombre_usuario>
+```sh
+github-activity --username <nombre_de_usuario>
 ```
+> Muestra la actividad reciente del usuario de GitHub especificado.
 
-**Ejemplo de salida:**
+```sh
+github-repo --username <nombre_de_usuario>
+```
+> Muestra la lista de repositorios públicos del usuario de GitHub especificado.
 
-```text
+```sh
+github-user --username <nombre_de_usuario>
+```
+> Muestra información detallada del usuario de GitHub especificado.
+
+---
+
+## 📤 Ejemplos de Output
+
+### `github-activity --username octocat`
+
+```plaintext
 ══════════════════════════════════════════
-   Actividad reciente de kamranahmedse
+📢 Actividad reciente de octocat
 ══════════════════════════════════════════
 
-▶ Evento: PushEvent
-  📌 Repositorio: developer-roadmap
-  ⏳ Fecha: 24 de marzo de 2025, 07:34 a. m. UTC
-----------------------------------------
+▶ Tipo de evento: PushEvent 📌 Repositorio: octocat/Spoon-Knife ⏳ Fecha: 02 de abril de 2025, 02:56 PM UTC
+▶ Tipo de evento: CreateEvent 📌 Repositorio: octocat/Hello-World ⏳ Fecha: 02 de abril de 2025, 01:30 PM UTC
+... (más eventos)
 ```
 
-### 2. Obtener Repositorios (`github-repo`)
+### `github-repo --username octocat`
 
-Lista todos los repositorios públicos del usuario especificado y sus detalles, como la URL y la descripción.
+```plaintext
+══════════════════════════════════════════
+📂 Lista de repositorios de octocat
+══════════════════════════════════════════
 
-**Ejemplo de uso:**
-
-```bash
-github-repo --username <nombre_usuario>
-# O si es Spring Shell: shell:> github-repo --username <nombre_usuario>
+🔹 Nombre: Spoon-Knife 🔗 URL: https://github.com/octocat/Spoon-Knife 📝 Descripción: This repo is for demonstration purposes only.
+🔹 Nombre: Hello-World 🔗 URL: https://github.com/octocat/Hello-World 📝 Descripción: (Sin descripción)
+... (más repositorios)
 ```
 
-**Ejemplo de salida:**
+### `github-user --username octocat`
 
-```text
-📂 Lista de repositorios de kamranahmedse:
------------------------------------------
-🔹 developer-roadmap
-   🔗 https://github.com/kamranahmedse/developer-roadmap
-   📝 Conoce los caminos para convertirte en desarrollador.
------------------------------------------
+```plaintext
+══════════════════════════════════════════
+👤 Información del usuario: Mona Lisa Octocat
+══════════════════════════════════════════
+
+🆔 ID: 583231
+🏷️ Tipo de vista: User
+📅 Cuenta creada en: 25 de enero de 2011, 05:49 PM UTC
+📦 Repositorios públicos: 8
+📝 Biografía: There once was a girl named Octocat.
 ```
 
-## 🎨 Colores en la Consola
+---
 
-Se utilizan colores ANSI para mejorar la legibilidad de la salida en la consola:
+## 🏃‍♂️ Cómo Ejecutar la Aplicación
 
-- 🔵 Azul: Para la URL de los repositorios.
-- 🟢 Verde: Para el tipo de evento (ej. `PushEvent`).
-- 🟡 Amarillo: Para advertencias o notas importantes (si aplica).
+(Asumiendo que tienes Maven instalado)
 
-## 📝 Notas Importantes
+1. Clona este repositorio.
 
-- Este proyecto utiliza la API pública de GitHub para obtener la información. No requiere autenticación para datos públicos.
-- Asegúrate de tener conexión a internet para que los comandos funcionen correctamente.
-- Para ejecutar los comandos, necesitarás compilar el proyecto (ej. con `mvn package`) y ejecutar el JAR resultante, o usar `mvn spring-boot:run` si está configurado como aplicación Spring Shell.
+```sh
+git clone https://github.com/tu_usuario/github-activity-cli.git
+```
 
-## 💬 Contribuciones
+2. Navega al directorio del proyecto en tu terminal.
 
-¡Las contribuciones son bienvenidas! 😄 Si tienes sugerencias, mejoras o encuentras errores, no dudes en abrir un *issue* o enviar un *pull request*.
+```sh
+cd github-activity-cli
+```
 
-## 📄 Licencia
+3. Ejecuta el siguiente comando para iniciar la aplicación:
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles (deberás crear este archivo si aún no existe).
+```sh
+mvn spring-boot:run
+```
+
+---
+
+🚀 ¡Disfruta usando **GitHub Activity CLI**!
+
