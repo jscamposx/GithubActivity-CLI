@@ -16,25 +16,25 @@ Una herramienta de línea de comandos para consultar información de usuarios de
 
 ---
 
-## 📂 Estructura del Proyecto
+## 💂️ Estructura del Proyecto
 
 ```plaintext
-📂 Proyecto
-├── 📦 src
-│   ├── 📂 main
-│   │   ├── 📂 java
+📚 Proyecto
+├── 📚 src
+│   ├── 📚 main
+│   │   ├── 📚 java
 │   │   │   ├── 🏢 com.github_activity_cli  # Paquete principal de la aplicación
-│   │   │   │   ├── 🕹️ controller           # Controladores para manejar los comandos CLI
+│   │   │   │   ├── 🛩️ controller           # Controladores para manejar los comandos CLI
 │   │   │   │   ├── ⚠️ exceptions           # Manejo de excepciones personalizadas
-│   │   │   │   ├── 📄 model                # Modelos de datos (Usuario, Repositorio, Evento)
+│   │   │   │   ├── 📝 model                # Modelos de datos (Usuario, Repositorio, Evento)
 │   │   │   │   ├── ⚙️ service               # Lógica de negocio y comunicación con la API de GitHub
 │   │   │   │   ├── 🛠️ util                  # Utilidades como formateo de fechas y caché
 │   │   │   │   └── 🚀 GithubActivityCliApplication.java  # Punto de entrada de la aplicación
-│   ├── 📂 resources
+│   ├── 📚 resources
 │   │   ├── ⚙️ application.properties       # Configuraciones de la aplicación
 │   │   └── 🎨 banner.txt                  # Banner ASCII para la CLI
 ├── 🧪 test                                # Pruebas automatizadas
-├── 📜 pom.xml                             # Archivo de configuración de Maven
+├── 📝 pom.xml                             # Archivo de configuración de Maven
 ```
 
 ---
@@ -78,11 +78,11 @@ github-user --username <nombre_de_usuario>
 
 ```plaintext
 ══════════════════════════════════════════
-📂 Lista de repositorios de octocat
+📚 Lista de repositorios de octocat
 ══════════════════════════════════════════
 
-🔹 Nombre: Spoon-Knife 🔗 URL: https://github.com/octocat/Spoon-Knife 📝 Descripción: This repo is for demonstration purposes only.
-🔹 Nombre: Hello-World 🔗 URL: https://github.com/octocat/Hello-World 📝 Descripción: (Sin descripción)
+🔹 Nombre: Spoon-Knife 📎 URL: https://github.com/octocat/Spoon-Knife 📝 Descripción: This repo is for demonstration purposes only.
+🔹 Nombre: Hello-World 📎 URL: https://github.com/octocat/Hello-World 📝 Descripción: (Sin descripción)
 ... (más repositorios)
 ```
 
@@ -94,9 +94,9 @@ github-user --username <nombre_de_usuario>
 ══════════════════════════════════════════
 
 🆔 ID: 583231
-🏷️ Tipo de vista: User
+👉 Tipo de vista: User
 📅 Cuenta creada en: 25 de enero de 2011, 05:49 PM UTC
-📦 Repositorios públicos: 8
+📚 Repositorios públicos: 8
 📝 Biografía: There once was a girl named Octocat.
 ```
 
@@ -104,24 +104,16 @@ github-user --username <nombre_de_usuario>
 
 ## 🏃‍♂️ Cómo Ejecutar la Aplicación
 
-(Asumiendo que tienes Maven instalado)
+Si deseas ejecutar la aplicación con el `.jar` que ya subiste, sigue estos pasos:
 
-1. Clona este repositorio.
+1. Descarga el archivo `github-activity-cli-0.0.1-SNAPSHOT.jar` desde el repositorio.
 
-```sh
-git clone https://github.com/tu_usuario/github-activity-cli.git
-```
+2. Abre una terminal y navega a la ubicación donde guardaste el archivo `.jar`.
 
-2. Navega al directorio del proyecto en tu terminal.
+3. Ejecuta el siguiente comando:
 
 ```sh
-cd github-activity-cli
-```
-
-3. Ejecuta el siguiente comando para iniciar la aplicación:
-
-```sh
-mvn spring-boot:run
+java -jar github-activity-cli-0.0.1-SNAPSHOT.jar
 ```
 
 ---
