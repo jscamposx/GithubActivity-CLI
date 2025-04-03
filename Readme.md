@@ -104,7 +104,6 @@ github-user --username <nombre_de_usuario>
 
 ## 🏃‍♂️ Cómo Ejecutar la Aplicación
 
-Si deseas ejecutar la aplicación con el `.jar` que ya subiste, sigue estos pasos:
 
 1. Descarga el archivo `github-activity-cli-0.0.1-SNAPSHOT.jar` desde el repositorio.
 
