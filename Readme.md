@@ -17,9 +17,46 @@ El objetivo principal de este proyecto es crear una interfaz de línea de comand
 
 1.  **Java 21**
 2.  **Maven**
-3.  **Spring Boot 3.4+**
+3.  **Spring Boot **
+   
+
+## 📂 Estructura del Proyecto (Simplificada)
+
+```
+📦 github-activity-cli
+├── 📁 .mvn/
+├── 📁 src
+│   ├── 📁 main
+│   │   ├── 📁 java/com/github_activity_cli
+│   │   │   ├── 📁 controller # (Si es una app web/API) o cli (Si es CLI pura)
+│   │   │   │   └── GithubController.java / GithubCommands.java
+│   │   │   ├── 📁 model      # Clases del dominio (Event, Repo)
+│   │   │   │   ├── Event.java
+│   │   │   │   └── Repo.java
+│   │   │   ├── 📁 service    # Lógica de negocio (Llamadas a API GitHub)
+│   │   │   │   └── GithubService.java
+│   │   │   ├── 📁 util       # Clases de utilidad (DateFormatter)
+│   │   │   │   └── DateFormatter.java
+│   │   │   └── GithubActivityCliApplication.java # Punto de entrada Spring Boot
+│   │   └── 📁 resources
+│   │       ├── 📁 static     # Archivos estáticos (si aplica)
+│   │       ├── 📁 templates   # Plantillas (si aplica)
+│   │       ├── application.properties # Configuración de Spring
+│   │       └── banner.txt    # Banner de inicio (opcional)
+│   └── 📁 test        # Pruebas unitarias/integración
+├── 📁 target/       # Archivos generados por Maven (compilación)
+├── 📄 .gitattributes
+├── 📄 .gitignore
+├── 📄 HELP.md       # Documentación adicional (si existe)
+├── 📄 mvnw          # Maven Wrapper (Linux/Mac)
+├── 📄 mvnw.cmd      # Maven Wrapper (Windows)
+└── 📄 pom.xml       # Archivo de configuración de Maven
+```
+
 
 ## 🔧 Comandos Disponibles
+
+*(Asumiendo una ejecución como aplicación CLI compilada o vía Spring Shell)*
 
 ### 1. Obtener Actividad Reciente (`github-activity`)
 
@@ -33,6 +70,7 @@ Muestra la actividad reciente de un usuario de GitHub, incluyendo eventos como:
 
 ```bash
 github-activity --username <nombre_usuario>
+# O si es Spring Shell: shell:> github-activity --username <nombre_usuario>
 ```
 
 **Ejemplo de salida:**
@@ -56,6 +94,7 @@ Lista todos los repositorios públicos del usuario especificado y sus detalles, 
 
 ```bash
 github-repo --username <nombre_usuario>
+# O si es Spring Shell: shell:> github-repo --username <nombre_usuario>
 ```
 
 **Ejemplo de salida:**
@@ -64,7 +103,7 @@ github-repo --username <nombre_usuario>
 📂 Lista de repositorios de kamranahmedse:
 -----------------------------------------
 🔹 developer-roadmap
-   🔗 [https://github.com/kamranahmedse/developer-roadmap](https://github.com/kamranahmedse/developer-roadmap)
+   🔗 https://github.com/kamranahmedse/developer-roadmap
    📝 Conoce los caminos para convertirte en desarrollador.
 -----------------------------------------
 ```
@@ -81,6 +120,7 @@ Se utilizan colores ANSI para mejorar la legibilidad de la salida en la consola:
 
 - Este proyecto utiliza la API pública de GitHub para obtener la información. No requiere autenticación para datos públicos.
 - Asegúrate de tener conexión a internet para que los comandos funcionen correctamente.
+- Para ejecutar los comandos, necesitarás compilar el proyecto (ej. con `mvn package`) y ejecutar el JAR resultante, o usar `mvn spring-boot:run` si está configurado como aplicación Spring Shell.
 
 ## 💬 Contribuciones
 
