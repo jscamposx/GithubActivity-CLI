@@ -103,7 +103,7 @@ github-user --username <nombre_de_usuario>
 ---
 
 ## 🏃‍♂️ Cómo Ejecutar la Aplicación
-
+(debes tener configurada tu terminal para tener la experiencia completa o ejecutar desde el codigo fuente)
 
 1. Descarga el archivo `github-activity-cli-0.0.1-SNAPSHOT.jar` desde el repositorio.
 
